@@ -16,8 +16,8 @@ public class EvaluatorExample
 
     private int correct;
     private int nrOfDocuments;
-    
-    /* 
+
+    /*
      * This is called BEFORE any documents are processed.
      */
     @Override
@@ -28,26 +28,32 @@ public class EvaluatorExample
         correct = 0;
         nrOfDocuments = 0;
     }
-    
-    
-    /* 
+
+
+    /*
      * This is called ONCE for each document
      */
     @Override
     public void process(JCas jcas)
         throws AnalysisEngineProcessException
     {
-        
+
         DetectedLanguage detected = JCasUtil.selectSingle(jcas, DetectedLanguage.class);
         GoldLanguage actual = JCasUtil.selectSingle(jcas, GoldLanguage.class);
 
+        if(detected.getLanguage().equals(actual.getLanguage())){
+
+        	correct ++;
+        }
+
+        nrOfDocuments ++;
+
         System.out.println(actual.getLanguage() + " detected as " + detected.getLanguage());
-        
-        // FIXME: Keep track of correctly classified documents! 
+
+        // FIXME: Keep track of correctly classified documents!
     }
 
-
-    /* 
+    /*
      * This is called AFTER all documents have been processed.
      */
     @Override
@@ -55,7 +61,7 @@ public class EvaluatorExample
         throws AnalysisEngineProcessException
     {
         super.collectionProcessComplete();
-        
+
         System.out.println(correct + " out of " + nrOfDocuments + " are correct.");
     }
 }
