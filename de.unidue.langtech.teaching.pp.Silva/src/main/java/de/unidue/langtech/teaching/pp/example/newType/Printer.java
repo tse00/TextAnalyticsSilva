@@ -21,6 +21,7 @@ public class Printer
     {
         // This API always returns a collection even if you know that there should be only one
         Collection<MyType> letterECount = JCasUtil.select(jcas, MyType.class);
+        //Collection<MyType> letterACount = JCasUtil.select(jcas, MyType.class);
 
         // There is a special API for the case you know that there is exactly one annotation
         GoldLanguage gold = JCasUtil.selectSingle(jcas, GoldLanguage.class);
@@ -31,6 +32,14 @@ public class Printer
                     + gold.getLanguage());
             System.out.println("Number of e/E: " + t.getCountLetterE());
         }
+
+       /* for (MyType t : letterACount) {
+            System.out.println("Detected: " + detected.getLanguage() + " Gold:"
+                    + gold.getLanguage());
+            System.out.println("Number of a/A: " + t.);
+
+        }*/
+
 
     }
 

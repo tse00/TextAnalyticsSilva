@@ -13,7 +13,6 @@ import de.unidue.langtech.teaching.pp.type.GoldLanguage;
 public class EvaluatorExample
     extends JCasAnnotator_ImplBase
 {
-
     private int correct;
     private int nrOfDocuments;
 
@@ -28,7 +27,6 @@ public class EvaluatorExample
         correct = 0;
         nrOfDocuments = 0;
     }
-
 
     /*
      * This is called ONCE for each document
@@ -48,7 +46,7 @@ public class EvaluatorExample
 
         nrOfDocuments ++;
 
-        System.out.println(actual.getLanguage() + " detected as " + detected.getLanguage());
+        System.out.println(actual.getLanguage() + " detected as " + detected.getLanguage() + "\n");
 
         // FIXME: Keep track of correctly classified documents!
     }

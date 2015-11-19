@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
+import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
@@ -20,11 +21,18 @@ public class BaselineExample
     extends JCasAnnotator_ImplBase
 {
 
+	public static final String PARAM_MESSAGE = "PARAM_MESSAGE";
+	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Hello everyone \n")
 
-    @Override
+	protected String message;
+
+	@Override
     public void process(JCas jcas)
         throws AnalysisEngineProcessException
     {
+
+		System.out.println(message);
+
         System.out.println("Document is: " + jcas.getDocumentText());
 
         Collection<Token> tokens = JCasUtil.select(jcas, Token.class);
@@ -32,28 +40,29 @@ public class BaselineExample
 
         String lang = "";
 
-
-
         for(Token t : tokens){
 
-        	System.out.println( "\n" + t.getCoveredText() + "\n");
+        	String w = t.getCoveredText().toLowerCase();
 
-        	String a = t.getCoveredText();
-
-        	if(a.equals("Beispiel")){
+        	if(w.equals("das")){
 
         		 lang = "DE";
 
         	}
 
-        	if(a.equals("arrived")){
+        	if(w.equals("the")){
 
         		lang = "EN";
         	}
 
-        	if(a.equals("finis")){
+        	if(w.equals("je")){
 
         		lang = "FR";
+        	}
+
+        	if(w.equals("eu")){
+
+        		lang = "PT";
         	}
         }
 

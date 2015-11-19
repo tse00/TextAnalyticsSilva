@@ -1,5 +1,6 @@
 package de.unidue.langtech.teaching.pp.example.newType;
 
+import org.apache.ivy.Main;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
@@ -22,12 +23,22 @@ public class LetterAnnotator
                 countLetterE++;
             }
         }
-        
+
+        int countLetterA = 0;
+        for (char c2 : documentText.toCharArray()) {
+            if (c2 == 'a' || c2 == 'A') {
+                    countLetterA++;
+            }
+        }
+
         //Set this integer value to the property of the new type 'MyType'
         MyType myType = new MyType(jcas);
         myType.setCountLetterE(countLetterE);
         myType.addToIndexes();
 
-    }
+        System.out.println("Letter E: " + countLetterE);
+        System.out.println("Letter A: " + countLetterA);
 
+    }
 }
+
