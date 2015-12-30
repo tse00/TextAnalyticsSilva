@@ -17,9 +17,9 @@ import org.apache.uima.util.ProgressImpl;
 import de.unidue.langtech.teaching.pp.type.GoldLanguage;
 
 /**
- * Example of a simple reader that reads a text file 
+ * Example of a simple reader that reads a text file
  * and puts each line of the file in a single document.
- * 
+ *
  * @author zesch
  *
  */
@@ -32,12 +32,12 @@ public class ReaderExample
      */
     public static final String PARAM_INPUT_FILE = "InputFile";
     @ConfigurationParameter(name = PARAM_INPUT_FILE, mandatory = true)
-    private File inputFile;    
-    
+    private File inputFile;
+
     private List<String> lines;
     private int currentLine;
-    
-    /* 
+
+    /*
      * initializes the reader
      */
     @Override
@@ -45,7 +45,7 @@ public class ReaderExample
         throws ResourceInitializationException
     {
         super.initialize(context);
-        
+
         try {
            lines = FileUtils.readLines(inputFile);
            currentLine = 0;
@@ -54,9 +54,9 @@ public class ReaderExample
             throw new ResourceInitializationException(e);
         }
     }
-    
-    
-    /* 
+
+
+    /*
      * true, if there is a next document, false otherwise
      */
     public boolean hasNext()
@@ -64,9 +64,9 @@ public class ReaderExample
     {
         return currentLine < lines.size();
     }
-    
-    
-    /* 
+
+
+    /*
      * feeds the next document into the pipeline
      */
     @Override
@@ -75,25 +75,25 @@ public class ReaderExample
     {
         // split line into gold standard language and actual text
         String[] parts = lines.get(currentLine).split("#");
-        
+
         // it is always good to do some sanity checks
         if (parts.length != 2) {
             throw new IOException("Wrong line format: " + lines.get(currentLine));
         }
-        
+
         // add gold standard value as annotation
         GoldLanguage goldLanguage = new GoldLanguage(jcas);
         goldLanguage.setLanguage(parts[0]);
         goldLanguage.addToIndexes();
-        
+
         // add actual text of the document
         jcas.setDocumentText(parts[1]);
-        
+
         currentLine++;
     }
 
-    
-    /* 
+
+    /*
      * informs the pipeline about the current progress
      */
     public Progress[] getProgress()

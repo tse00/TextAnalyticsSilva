@@ -132,7 +132,7 @@ public class NewReaderTest
                 System.out.print(gold.get(0).getLanguage());
             }
             System.out.println("]");
-            
+
             System.out.println("Tokens:[");
             List<Token> tokens = new ArrayList<Token>(JCasUtil.select(jCas, Token.class));
             for (int i=0; i < tokens.size(); i++){

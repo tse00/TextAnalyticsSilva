@@ -4,6 +4,8 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpSegmenter;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
 import de.unidue.langtech.teaching.pp.example.BaselineExample;
 import de.unidue.langtech.teaching.pp.example.EvaluatorExample;
@@ -23,6 +25,9 @@ public class ExtendedPipeline
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
                 AnalysisEngineFactory.createEngineDescription(BaselineExample.class),
                 AnalysisEngineFactory.createEngineDescription(EvaluatorExample.class)
+                /*AnalysisEngineFactory.createEngineDescription(OpenNlpSegmenter.class),
+                AnalysisEngineFactory.createEngineDescription(OpenNlpPosTagger.class)*/
+
         );
     }
 }

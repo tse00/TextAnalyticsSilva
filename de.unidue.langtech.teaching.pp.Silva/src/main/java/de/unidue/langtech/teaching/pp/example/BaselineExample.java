@@ -10,6 +10,7 @@ import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.unidue.langtech.teaching.pp.type.DetectedLanguage;
+import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 
 /**
  * The baseline always identifies "EN" as the document language.
@@ -22,7 +23,7 @@ public class BaselineExample
 {
 
 	public static final String PARAM_MESSAGE = "PARAM_MESSAGE";
-	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Hello everyone \n")
+	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Hello everyone (from BaselineExample) \n")
 
 	protected String message;
 
