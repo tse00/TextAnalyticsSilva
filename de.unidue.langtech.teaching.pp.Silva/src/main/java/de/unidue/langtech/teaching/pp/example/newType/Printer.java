@@ -34,12 +34,12 @@ public class Printer
             System.out.println("Number of e/E: " + t.getCountLetterE());
         }
 
-     /*   for (MyType t : letterACount) {
+        for (MyType2 t : letterACount) {
             System.out.println("Detected: " + detected.getLanguage() + " Gold:"
                     + gold.getLanguage());
-            System.out.println("Number of a/A: " + t.);
+            System.out.println("Number of a/A: " + t.getLetterACounter());
 
-        }*/
+        }
 
 
     }

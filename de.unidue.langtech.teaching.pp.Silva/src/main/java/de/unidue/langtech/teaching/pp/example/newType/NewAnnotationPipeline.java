@@ -20,9 +20,12 @@ public class NewAnnotationPipeline
                         ReaderExample.PARAM_INPUT_FILE, "src/test/resources/test/input.txt"
                 ),
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
+              // AnalysisEngineFactory.createEngineDescription(PositionRanking.class),
                 AnalysisEngineFactory.createEngineDescription(BaselineExample.class),
                 AnalysisEngineFactory.createEngineDescription(LetterAnnotator.class),
                 AnalysisEngineFactory.createEngineDescription(Printer.class)
+               // AnalysisEngineFactory.createEngineDescription(CandidateAnnotator.class)
+
         );
     }
 }

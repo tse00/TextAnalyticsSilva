@@ -1,11 +1,12 @@
 package de.unidue.langtech.teaching.pp.example.newType;
 
-import org.apache.ivy.Main;
+
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.jcas.JCas;
 
 import de.unidue.langtech.teaching.pp.type.MyType;
+import de.unidue.langtech.teaching.pp.type.MyType2;
 
 public class LetterAnnotator
     extends JCasAnnotator_ImplBase
@@ -37,6 +38,11 @@ public class LetterAnnotator
         myType.addToIndexes();
 
         System.out.println("Letter E: " + countLetterE);
+
+        MyType2 myType2 = new MyType2(jcas);
+        myType2.setLetterACounter(countLetterA);
+        myType2.addToIndexes();
+
         System.out.println("Letter A: " + countLetterA);
 
     }

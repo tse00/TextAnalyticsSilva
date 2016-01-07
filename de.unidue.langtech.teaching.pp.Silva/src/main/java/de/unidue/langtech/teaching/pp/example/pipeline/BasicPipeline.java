@@ -7,8 +7,7 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
-
-
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.snowball.SnowballStemmer;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
 import de.unidue.langtech.teaching.pp.example.BaselineExample;
@@ -30,14 +29,12 @@ public class BasicPipeline
                 ),
 
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
-
                 AnalysisEngineFactory.createEngineDescription(BaselineExample.class,
-                		BaselineExample.PARAM_MESSAGE, "Hey!(from BasicPipeline - main)"),
+                		BaselineExample.PARAM_MESSAGE, "Hey!"),
                 AnalysisEngineFactory.createEngineDescription(LetterAnnotator.class),
                 AnalysisEngineFactory.createEngineDescription(EvaluatorExample.class),
                 AnalysisEngineFactory.createEngineDescription(SnowballStemmer.class, SnowballStemmer.PARAM_LANGUAGE, "en")
               //AnalysisEngineFactory.createEngineDescription(CasDumpWriter.class)
-
         );
     }
 }

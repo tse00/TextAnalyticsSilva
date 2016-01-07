@@ -9,6 +9,7 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
+import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpNameFinder;
 import de.unidue.langtech.teaching.pp.type.DetectedLanguage;
 import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
 
@@ -38,6 +39,7 @@ public class BaselineExample
 
         Collection<Token> tokens = JCasUtil.select(jcas, Token.class);
         System.out.println("CAS contains " + tokens.size() + " tokens.");
+
 
         String lang = "";
 
