@@ -11,6 +11,9 @@ import org.apache.uima.fit.factory.AnalysisEngineFactory;
 import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 
+import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ;
+import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Writer;
 import de.tudarmstadt.ukp.dkpro.core.languagetool.LanguageToolLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.maltparser.MaltParser;
@@ -36,6 +39,7 @@ import de.unidue.langtech.teaching.pp.example.BaselineSumm;
 import de.unidue.langtech.teaching.pp.example.EvaluatorExample;
 import de.unidue.langtech.teaching.pp.example.KeyphraseReader;
 import de.unidue.langtech.teaching.pp.example.ReaderExample;
+import de.unidue.langtech.teaching.pp.example.newType.CooccurrenceGraph;
 import de.tudarmstadt.ukp.dkpro.core.posfilter.PosFilter;
 
 public class ExtendedPipeline
@@ -51,7 +55,6 @@ public class ExtendedPipeline
 			                		KeyphraseReader.PARAM_INPUTDIR, "src/test/resources/test2/",
 			                		KeyphraseReader.PARAM_LANGUAGE, "en",
 			                		KeyphraseReader.PARAM_DATA_SUFFIX, "txt"
-
 			                ),
 
 			                //Tokenization
@@ -76,16 +79,18 @@ public class ExtendedPipeline
 
 			                AnalysisEngineFactory.createEngineDescription(StanfordParser.class, StanfordParser.PARAM_LANGUAGE, "en"),
 
-			                AnalysisEngineFactory.createEngineDescription(BaselineSelection.class)
+			                AnalysisEngineFactory.createEngineDescription(BaselineSelection.class),
 
+			                /*AnalysisEngineFactory.createEngineDescription(CandidateAnnotator.class, CandidateAnnotator.PARAM_FEATURE_PATH,
+			         "/de.unidue.langtech.teaching.pp.Silva/src/main/resources/FeaturePath Graph",
+			                		CandidateAnnotator.PARAM_RESOLVE_OVERLAPS, true)
+*/
+			                AnalysisEngineFactory.createEngineDescription(CooccurrenceGraph.class,
+			                		CooccurrenceGraph.PARAM_FEATURE_PATH, N.class, CooccurrenceGraph.PARAM_FEATURE_PATH, ADJ.class),
 
-			                //AnalysisEngineFactory.createEngineDescription(CooccurrenceGraph.class),
-
-			               // StopwordFilterFactory.getStopwordFilter_english()
-
-			               // AnalysisEngineFactory.createEngineDescription(StopWordRemover.class),
-
-
+			               AnalysisEngineFactory.createEngineDescription(StopWordRemover.class,
+			            		   StopWordRemover.PARAM_MODEL_LOCATION, "src/main/resources/stopwords/english_keyphrase_stopwords.txt",
+			            		   StopWordRemover.PARAM_PATHS, Token.class.getName()) // + "keyphrase")
 
 			        );
 			    }

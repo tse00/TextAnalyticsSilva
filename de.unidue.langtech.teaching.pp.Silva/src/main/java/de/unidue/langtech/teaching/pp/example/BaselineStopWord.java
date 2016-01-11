@@ -23,9 +23,9 @@ import de.tudarmstadt.ukp.dkpro.lab.storage.StorageService.AccessMode;
 import de.tudarmstadt.ukp.dkpro.lab.task.Discriminator;
 import de.tudarmstadt.ukp.dkpro.lab.uima.task.impl.UimaTaskBase;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
-import de.tudarmstadt.ukp.dkpro.core.io.bincas.BinaryCasReader;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 
-public class BaselineStopWord extends UimaTaskBase{
+public class BaselineStopWord extends JCasAnnotator_ImplBase{
 
 	 //Stopword filter
     @Discriminator
@@ -33,16 +33,24 @@ public class BaselineStopWord extends UimaTaskBase{
     @Discriminator
     private Set<String> stopwordlists;
 
-	public CollectionReaderDescription getCollectionReaderDescription(TaskContext aContext)
-			throws ResourceInitializationException, IOException {
 
-		File inputRoot = aContext.getStorageLocation(KEY_INPUT_BIN, AccessMode.READONLY);
-	        return createReader(BinaryCasReader.class,
-	                BinaryCasReader.PARAM_SOURCE_LOCATION, inputRoot,
-	                BinaryCasReader.PARAM_PATTERNS, new String[] { INCLUDE_PREFIX + "**/*.bin" });
+    // Set up stemmer and lemmatizer
 
-	}
-	public AnalysisEngineDescription getAnalysisEngineDescription(TaskContext aContext)
+
+	@Override
+	public void process(JCas jcas) throws AnalysisEngineProcessException {
+
+		StopWordRemover stop = new StopWordRemover();
+
+		List<AnalysisEngineDescription> engines = new LinkedList<AnalysisEngineDescription>();
+
+		engines.add(createEngineDescription(StopWordRemover.class,
+     		   StopWordRemover.PARAM_MODEL_LOCATION, "src/main/resources/stopwords/english_keyphrase_stopwords.txt",
+     		   StopWordRemover.PARAM_PATHS, Token.class.getName()));
+
+		System.out.println("Without Stopword: ");
+
+/*	public AnalysisEngineDescription getAnalysisEngineDescription(TaskContext aContext)
 			throws ResourceInitializationException, IOException {
 
 		List<AnalysisEngineDescription> engines = new LinkedList<AnalysisEngineDescription>();
@@ -50,9 +58,8 @@ public class BaselineStopWord extends UimaTaskBase{
 		if(runStopwordFilter)
             engines.add(StopwordFilterFactory.getStopwordFilter(stopwordlists));
 
-        return createEngine(engines);
+        return createEngine(engines);*/
 
-	}
 
 /*	@Override
 	public void process(JCas aJCas) throws AnalysisEngineProcessException {
@@ -66,13 +73,9 @@ public class BaselineStopWord extends UimaTaskBase{
 					"[en]classpath:/stopwords/english_stopwords.txt",
 				"[en]classpath:/stopwords/english_keyphrase_stopwords.txt"}));
 
-
-
-
 		   if(runStopwordFilter){
 	            engines.add(StopwordFilterFactory.getStopwordFilter(stopwordlists));
 	        }
-
 	}*/
-
+	}
 }

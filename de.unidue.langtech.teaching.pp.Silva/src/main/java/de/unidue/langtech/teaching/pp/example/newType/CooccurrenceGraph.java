@@ -11,6 +11,7 @@
  ******************************************************************************/
 package de.unidue.langtech.teaching.pp.example.newType;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +32,8 @@ import org.apache.uima.util.Level;
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathException;
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathInfo;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
-import de.tudarmstadt.ukp.dkpro.keyphrases.textgraphs.type.WeightedAnnotationPair;
+import de.unidue.langtech.teaching.pp.type.MyType;
+import de.unidue.langtech.teaching.pp.type.WeightedAnnotationPair;
 
 /**
  * Creates a fully connected lexical graph by adding AnnotationPair annotations that represent edges in the graph.
@@ -95,6 +97,9 @@ public class CooccurrenceGraph extends JCasAnnotator_ImplBase {
             pair.setWeight(edgeMap.get(edge)/(double) maxAmount);
             pair.addToIndexes();
         }
+
+        System.out.println("Weighted maxAmount: " + maxAmount);
+        System.out.println("Weighted edgeMap: " + edgeMap + termMap);
 	}
 
     /**
@@ -111,6 +116,7 @@ public class CooccurrenceGraph extends JCasAnnotator_ImplBase {
         String[] segments = featurePath.split("/", 2);
 
         String typeName = segments[0];
+
         Type t = jcas.getCas().getTypeSystem().getType(typeName);
         if (t == null) {
         	throw new AnalysisEngineProcessException(new IllegalStateException("Type " +

@@ -19,6 +19,7 @@ public class BaselineSelection extends JCasAnnotator_ImplBase {
 	@Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
+		System.out.println(aJCas.getDocumentText() + "\n");
     /* all sentences */
     for (Sentence sentence : JCasUtil.select(aJCas, Sentence.class)) {
 
