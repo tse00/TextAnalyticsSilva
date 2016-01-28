@@ -1,4 +1,4 @@
-package de.unidue.langtech.teaching.pp.example;
+package de.unidue.langtech.teaching.pp.Keyphrase_TextRank;
 
 import java.io.File;
 import java.io.FileInputStream;

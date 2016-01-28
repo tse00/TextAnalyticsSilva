@@ -9,9 +9,8 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/gpl-3.0.txt
  ******************************************************************************/
-package de.unidue.langtech.teaching.pp.example.newType;
+package de.unidue.langtech.teaching.pp.Keyphrase_TextRank;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,7 +31,6 @@ import org.apache.uima.util.Level;
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathException;
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathInfo;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
-import de.unidue.langtech.teaching.pp.type.MyType;
 import de.unidue.langtech.teaching.pp.type.WeightedAnnotationPair;
 
 /**
@@ -98,8 +96,8 @@ public class CooccurrenceGraph extends JCasAnnotator_ImplBase {
             pair.addToIndexes();
         }
 
-        System.out.println("Weighted maxAmount: " + maxAmount);
-        System.out.println("Weighted edgeMap: " + edgeMap + termMap);
+        System.out.println("\nGraph weighted edgeMap: " + edgeMap);
+        System.out.println("Graph weighted termMap: "+ termMap);
 	}
 
     /**

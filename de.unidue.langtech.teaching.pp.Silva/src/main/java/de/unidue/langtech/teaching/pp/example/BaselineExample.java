@@ -2,6 +2,7 @@ package de.unidue.langtech.teaching.pp.example;
 
 import java.util.Collection;
 
+
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
@@ -9,9 +10,8 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpNameFinder;
 import de.unidue.langtech.teaching.pp.type.DetectedLanguage;
-import de.tudarmstadt.ukp.dkpro.core.stopwordremover.StopWordRemover;
+
 
 /**
  * The baseline always identifies "EN" as the document language.

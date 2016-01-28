@@ -7,9 +7,11 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
+import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.BaselineSelection;
+import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.CooccurrenceGraph;
+import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.KeyphraseReader;
+import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.NodeDegreeRanking;
 import de.unidue.langtech.teaching.pp.example.BaselineExample;
-import de.unidue.langtech.teaching.pp.example.BaselineSelection;
-import de.unidue.langtech.teaching.pp.example.KeyphraseReader;
 import de.unidue.langtech.teaching.pp.example.ReaderExample;
 
 public class NewAnnotationPipeline
@@ -26,7 +28,7 @@ public class NewAnnotationPipeline
                 		KeyphraseReader.PARAM_DATA_SUFFIX, "txt"
                 ),
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
-                AnalysisEngineFactory.createEngineDescription(BaselineExample.class),
+                //AnalysisEngineFactory.createEngineDescription(BaselineExample.class),
                 AnalysisEngineFactory.createEngineDescription(BaselineSelection.class),
                // AnalysisEngineFactory.createEngineDescription(LetterAnnotator.class),
                // AnalysisEngineFactory.createEngineDescription(Printer.class),

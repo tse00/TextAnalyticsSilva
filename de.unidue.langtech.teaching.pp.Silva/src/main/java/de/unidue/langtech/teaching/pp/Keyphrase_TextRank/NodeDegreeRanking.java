@@ -9,7 +9,7 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/gpl-3.0.txt
  ******************************************************************************/
-package de.unidue.langtech.teaching.pp.example.newType;
+package de.unidue.langtech.teaching.pp.Keyphrase_TextRank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,7 +89,16 @@ public class NodeDegreeRanking extends JCasAnnotator_ImplBase {
             keyphrase.setEnd(offset[1]);
             keyphrase.setKeyphrase(term);
             keyphrase.addToIndexes();
+
         }
+
+        System.out.println("\nNode Degree termMap: " + termMap);
+        System.out.println("Node Degree neighborMap: " + neighborMap);
+        System.out.println("Node Degree numberEdges: " + numberEdges);
+        System.out.println("Node Degree totalScore: " + totalScore);
+        System.out.println("Node Degree score map: " + scoreMap);
+        System.out.println();
+
 	}
 
     /**
