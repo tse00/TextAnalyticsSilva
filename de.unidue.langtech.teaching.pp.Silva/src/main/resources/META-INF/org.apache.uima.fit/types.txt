@@ -1,4 +1,2 @@
 classpath*:desc/type/**/*.xml
-classpath*:desc/type/Keyphrase.xml
-classpath*:desc/type/KeyphraseMetaData.xml
-classpath*:desc/type/AnnotationPair.xml
+

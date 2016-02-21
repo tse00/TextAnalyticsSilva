@@ -37,7 +37,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Level;
 
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
-import de.unidue.langtech.teaching.pp.type.Keyphrase;
+import de.tudarmstadt.ukp.dkpro.keyphrases.core.type.Keyphrase;
 
 /**
  * Simply outputs the document text and up to <code>n</code> extracted keyphrases.
@@ -100,7 +100,7 @@ public class KeyphraseWriter extends JCasAnnotator_ImplBase {
     public void process(JCas jcas) throws AnalysisEngineProcessException {
 
         getContext().getLogger().log(Level.INFO, "Processing document: " + DocumentMetaData.get(jcas).getDocumentId());
-        getContext().getLogger().log(Level.INFO, "N: "+n);
+       // getContext().getLogger().log(Level.INFO, "N: "+n);
 
         this.jcas = jcas;
 
@@ -117,14 +117,20 @@ public class KeyphraseWriter extends JCasAnnotator_ImplBase {
             file = new File(fileName+"_"+DocumentMetaData.get(jcas).getDocumentTitle());
         }
 
-        // sort the keyphrases by score, filter duplicates,
-        sb.append("----------Keyphrases------------"); sb.append(LF);
+    	System.out.println("--------------------------------------------------------------");
 
+    	for (Keyphrase keyphrase : filterAndSortKeyphrases()){
+
+        	System.out.println(keyphrase.getKeyphrase() + "\t\t" + keyphrase.getScore());
+        }
+
+        // sort the keyphrases by score, filter duplicates,
+    	sb.append("\n---------- " + n + " Extracted Keyphrases ------------\n"); sb.append(LF);
         List<Keyphrase> keyphrases = filterAndSortKeyphrases();
         int iterateTo = Math.min(keyphrases.size(), this.n);
         for (int i=0; i<iterateTo; i++) {
             Keyphrase keyphrase = keyphrases.get(i);
-            String line = keyphrase.getKeyphrase() + " " + keyphrase.getScore();
+            String line = keyphrase.getKeyphrase() + "\t\t" + keyphrase.getScore();
             sb.append(line);
             sb.append(LF);
             if(writeToFile){
@@ -139,11 +145,6 @@ public class KeyphraseWriter extends JCasAnnotator_ImplBase {
         }
         getContext().getLogger().setOutputStream(System.out);
         getContext().getLogger().log(Level.INFO, sb.toString());
-
-        for (Keyphrase keyphrase : filterAndSortKeyphrases()){
-
-        	System.out.println("Extract: " +keyphrase.getKeyphrase() + "\t\t" + keyphrase.getScore());
-        }
     }
 
     /**

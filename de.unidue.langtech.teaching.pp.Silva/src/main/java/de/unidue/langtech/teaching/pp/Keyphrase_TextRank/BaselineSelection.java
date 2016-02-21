@@ -13,25 +13,24 @@ import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ;
 
 public class BaselineSelection extends JCasAnnotator_ImplBase {
 
+
 	@Override
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
 
+		System.out.println("\n----------Document------------");
+
 		System.out.println("\n" + aJCas.getDocumentText() + "\n");
-    /* all sentences */
+
     for (Sentence sentence : JCasUtil.select(aJCas, Sentence.class)) {
 
-      // all Noun Phrases within that sentence
     	for (N nounphrase : JCasUtil.selectCovered(aJCas, N.class, sentence)) {
 
     		  System.out.printf("N: '%s'\n", nounphrase.getCoveredText());
     	}
-
     	for(ADJ adjectiv : JCasUtil.selectCovered(aJCas, ADJ.class, sentence)){
 
   		  System.out.printf("ADJ: '%s'\n", adjectiv.getCoveredText());
     	}
-
-
     }
   }
 }
