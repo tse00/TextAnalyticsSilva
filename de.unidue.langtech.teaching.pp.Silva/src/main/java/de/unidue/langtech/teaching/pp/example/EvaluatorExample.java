@@ -10,6 +10,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import de.unidue.langtech.teaching.pp.type.DetectedLanguage;
 import de.unidue.langtech.teaching.pp.type.GoldLanguage;
 
+
 public class EvaluatorExample
     extends JCasAnnotator_ImplBase
 {

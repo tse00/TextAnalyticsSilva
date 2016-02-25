@@ -24,7 +24,7 @@ public class BaselineExample
 {
 
 	public static final String PARAM_MESSAGE = "PARAM_MESSAGE";
-	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Hello everyone (from BaselineExample) \n")
+	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Hello everyone \n")
 
 	protected String message;
 
