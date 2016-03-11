@@ -117,12 +117,6 @@
   	<dependency>
   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
   		<artifactId>
-  			de.tudarmstadt.ukp.dkpro.core.maltparser-asl
-  		</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-  		<artifactId>
   			de.tudarmstadt.ukp.dkpro.core.stopwordremover-asl
   		</artifactId>
   	</dependency>
@@ -138,10 +132,6 @@
   			de.tudarmstadt.ukp.dkpro.core.api.frequency-asl
   		</artifactId>
   	</dependency>
-  	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-math</artifactId>
-	</dependency>
 	<dependency>
   		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
   		<artifactId>
@@ -154,14 +144,14 @@
 		<version>1.5.0</version>
 	</dependency>
 	<dependency>
-		<groupId>de.tudarmstadt.ukp.dkpro.keyphrases</groupId>
-		<artifactId>de.tudarmstadt.ukp.dkpro.keyphrases.wrappers-gpl</artifactId>
-		<version>1.5.0</version>
-	</dependency>
-	<dependency>
 		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 		<artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
 		<version>1.6.2</version>
 	</dependency>
+	<dependency>
+		<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		<artifactId>de.tudarmstadt.ukp.dkpro.core.maltparser-asl</artifactId>
+		<version>1.7.0</version>
+</dependency>
   </dependencies>
 </project>

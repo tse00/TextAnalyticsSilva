@@ -6,7 +6,6 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
-import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.BaselineSelection;
 import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.KeyphraseReader;
 import de.unidue.langtech.teaching.pp.example.BaselineExample;
 import de.unidue.langtech.teaching.pp.example.ReaderExample;
@@ -27,7 +26,6 @@ public class NewAnnotationPipeline
 
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),
                 AnalysisEngineFactory.createEngineDescription(BaselineExample.class),
-                AnalysisEngineFactory.createEngineDescription(BaselineSelection.class),
                 AnalysisEngineFactory.createEngineDescription(LetterAnnotator.class),
                 AnalysisEngineFactory.createEngineDescription(Printer.class)
         );

@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Thu Feb 25 09:32:51 CET 2016 */
+/* First created by JCasGen Wed Mar 09 23:54:59 CET 2016 */
 package de.unidue.langtech.teaching.pp.type;
 
 import org.apache.uima.jcas.JCas; 
@@ -14,12 +14,12 @@ import org.apache.uima.jcas.tcas.Annotation;
  * Updated by JCasGen Wed Mar 09 23:54:59 CET 2016
  * XML source: /Users/TSE_/git/TextAnalyticsSilva/de.unidue.langtech.teaching.pp.Silva/src/main/resources/desc/type/CountPOSType.xml
  * @generated */
-public class CountPos2 extends Annotation {
+public class CountPosCandidate extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(CountPos2.class);
+  public final static int typeIndexID = JCasRegistry.register(CountPosCandidate.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class CountPos2 extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected CountPos2() {/* intentionally empty block */}
+  protected CountPosCandidate() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public CountPos2(int addr, TOP_Type type) {
+  public CountPosCandidate(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class CountPos2 extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public CountPos2(JCas jcas) {
+  public CountPosCandidate(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class CountPos2 extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public CountPos2(JCas jcas, int begin, int end) {
+  public CountPosCandidate(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -77,25 +77,25 @@ public class CountPos2 extends Annotation {
  
     
   //*--------------*
-  //* Feature: CountADJ
+  //* Feature: CountCandidate
 
-  /** getter for CountADJ - gets 
+  /** getter for CountCandidate - gets 
    * @generated
    * @return value of the feature 
    */
-  public int getCountADJ() {
-    if (CountPos2_Type.featOkTst && ((CountPos2_Type)jcasType).casFeat_CountADJ == null)
-      jcasType.jcas.throwFeatMissing("CountADJ", "de.unidue.langtech.teaching.pp.type.CountPos2");
-    return jcasType.ll_cas.ll_getIntValue(addr, ((CountPos2_Type)jcasType).casFeatCode_CountADJ);}
+  public int getCountCandidate() {
+    if (CountPosCandidate_Type.featOkTst && ((CountPosCandidate_Type)jcasType).casFeat_CountCandidate == null)
+      jcasType.jcas.throwFeatMissing("CountCandidate", "de.unidue.langtech.teaching.pp.type.CountPosCandidate");
+    return jcasType.ll_cas.ll_getIntValue(addr, ((CountPosCandidate_Type)jcasType).casFeatCode_CountCandidate);}
     
-  /** setter for CountADJ - sets  
+  /** setter for CountCandidate - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setCountADJ(int v) {
-    if (CountPos2_Type.featOkTst && ((CountPos2_Type)jcasType).casFeat_CountADJ == null)
-      jcasType.jcas.throwFeatMissing("CountADJ", "de.unidue.langtech.teaching.pp.type.CountPos2");
-    jcasType.ll_cas.ll_setIntValue(addr, ((CountPos2_Type)jcasType).casFeatCode_CountADJ, v);}    
+  public void setCountCandidate(int v) {
+    if (CountPosCandidate_Type.featOkTst && ((CountPosCandidate_Type)jcasType).casFeat_CountCandidate == null)
+      jcasType.jcas.throwFeatMissing("CountCandidate", "de.unidue.langtech.teaching.pp.type.CountPosCandidate");
+    jcasType.ll_cas.ll_setIntValue(addr, ((CountPosCandidate_Type)jcasType).casFeatCode_CountCandidate, v);}    
   }
 
     

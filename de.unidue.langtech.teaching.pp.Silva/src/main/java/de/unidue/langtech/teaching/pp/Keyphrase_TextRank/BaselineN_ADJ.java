@@ -14,7 +14,7 @@ import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ;
 
 // Candidate Selection - Noun and Adjective
 
-public class BaselineSelection extends JCasAnnotator_ImplBase {
+public class BaselineN_ADJ extends JCasAnnotator_ImplBase {
 
 	public static final String PARAM_MESSAGE = "PARAM_MESSAGE";
 	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Just a List from all Nouns and Adjectives presented on the text: \n")
@@ -40,6 +40,9 @@ public class BaselineSelection extends JCasAnnotator_ImplBase {
     		System.out.printf("N: '%s'\n", noun.getCoveredText());
 
 			}
+		}
+
+		for (Sentence sentence : JCasUtil.select(jcas, Sentence.class)) {
 
 			for(ADJ adjectiv : JCasUtil.selectCovered(jcas, ADJ.class, sentence)){
 

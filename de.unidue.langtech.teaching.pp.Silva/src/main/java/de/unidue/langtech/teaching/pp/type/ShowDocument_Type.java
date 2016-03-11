@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Wed Feb 24 21:30:42 CET 2016 */
+/* First created by JCasGen Thu Mar 10 12:09:11 CET 2016 */
 package de.unidue.langtech.teaching.pp.type;
 
 import org.apache.uima.jcas.JCas;
@@ -14,9 +14,9 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Wed Mar 09 23:54:59 CET 2016
+ * Updated by JCasGen Thu Mar 10 12:09:11 CET 2016
  * @generated */
-public class CountPos1_Type extends Annotation_Type {
+public class ShowDocument_Type extends Annotation_Type {
   /** @generated 
    * @return the generator for this type
    */
@@ -26,47 +26,47 @@ public class CountPos1_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (CountPos1_Type.this.useExistingInstance) {
+  			 if (ShowDocument_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = CountPos1_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = ShowDocument_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new CountPos1(addr, CountPos1_Type.this);
-  			   CountPos1_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new ShowDocument(addr, ShowDocument_Type.this);
+  			   ShowDocument_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new CountPos1(addr, CountPos1_Type.this);
+        } else return new ShowDocument(addr, ShowDocument_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = CountPos1.typeIndexID;
+  public final static int typeIndexID = ShowDocument.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("de.unidue.langtech.teaching.pp.type.CountPos1");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("de.unidue.langtech.teaching.pp.type.ShowDocument");
  
   /** @generated */
-  final Feature casFeat_CountN;
+  final Feature casFeat_ShowDoc;
   /** @generated */
-  final int     casFeatCode_CountN;
+  final int     casFeatCode_ShowDoc;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public int getCountN(int addr) {
-        if (featOkTst && casFeat_CountN == null)
-      jcas.throwFeatMissing("CountN", "de.unidue.langtech.teaching.pp.type.CountPos1");
-    return ll_cas.ll_getIntValue(addr, casFeatCode_CountN);
+  public boolean getShowDoc(int addr) {
+        if (featOkTst && casFeat_ShowDoc == null)
+      jcas.throwFeatMissing("ShowDoc", "de.unidue.langtech.teaching.pp.type.ShowDocument");
+    return ll_cas.ll_getBooleanValue(addr, casFeatCode_ShowDoc);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setCountN(int addr, int v) {
-        if (featOkTst && casFeat_CountN == null)
-      jcas.throwFeatMissing("CountN", "de.unidue.langtech.teaching.pp.type.CountPos1");
-    ll_cas.ll_setIntValue(addr, casFeatCode_CountN, v);}
+  public void setShowDoc(int addr, boolean v) {
+        if (featOkTst && casFeat_ShowDoc == null)
+      jcas.throwFeatMissing("ShowDoc", "de.unidue.langtech.teaching.pp.type.ShowDocument");
+    ll_cas.ll_setBooleanValue(addr, casFeatCode_ShowDoc, v);}
     
   
 
@@ -77,13 +77,13 @@ public class CountPos1_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public CountPos1_Type(JCas jcas, Type casType) {
+  public ShowDocument_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_CountN = jcas.getRequiredFeatureDE(casType, "CountN", "uima.cas.Integer", featOkTst);
-    casFeatCode_CountN  = (null == casFeat_CountN) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_CountN).getCode();
+    casFeat_ShowDoc = jcas.getRequiredFeatureDE(casType, "ShowDoc", "uima.cas.Boolean", featOkTst);
+    casFeatCode_ShowDoc  = (null == casFeat_ShowDoc) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_ShowDoc).getCode();
 
   }
 }

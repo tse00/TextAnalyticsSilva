@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Thu Feb 25 09:32:51 CET 2016
+ * Updated by JCasGen Wed Mar 09 23:54:59 CET 2016
  * XML source: /Users/TSE_/git/TextAnalyticsSilva/de.unidue.langtech.teaching.pp.Silva/src/main/resources/desc/type/CountPOSType.xml
  * @generated */
 public class CountPos1 extends Annotation {

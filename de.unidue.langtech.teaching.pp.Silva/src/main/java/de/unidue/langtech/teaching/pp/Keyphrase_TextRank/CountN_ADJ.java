@@ -11,10 +11,9 @@ import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.unidue.langtech.teaching.pp.type.CountPos1;
 import de.unidue.langtech.teaching.pp.type.CountPos2;
-import de.unidue.langtech.teaching.pp.type.MyType;
 
 
-public class BaselineCountSelect extends JCasAnnotator_ImplBase {
+public class CountN_ADJ extends JCasAnnotator_ImplBase {
 
 	public static final String PARAM_MESSAGE = "PARAM_MESSAGE";
 	@ConfigurationParameter(name = PARAM_MESSAGE, mandatory = true, defaultValue = "Number of Nouns and Adjectives in the text: ")
@@ -25,14 +24,8 @@ public class BaselineCountSelect extends JCasAnnotator_ImplBase {
 	@Override
   public void process(JCas jcas) throws AnalysisEngineProcessException {
 
-
-		System.out.println("\n----------Document------------");
-
-		System.out.println("\n" + jcas.getDocumentText() + "\n");
-
 		System.out.println(message);
 
-	//String candidateN = "";
 	int countN = 0;
 	int countADJ = 0;
 
@@ -56,11 +49,6 @@ public class BaselineCountSelect extends JCasAnnotator_ImplBase {
 
     System.out.println("\nNouns count: " + countN);
 
-/*    MyType posN = new MyType(jcas);
-    posN.setCountLetterE(countN);
-    posN.addToIndexes();
-
-    System.out.println("\nNouns count: " + countN);*/
 
     CountPos2 posADJ = new CountPos2(jcas);
     posADJ.setCountADJ(countADJ);
@@ -69,5 +57,3 @@ public class BaselineCountSelect extends JCasAnnotator_ImplBase {
     System.out.println("Adjetives count: " + countADJ + "\n");
   }
 }
-
-

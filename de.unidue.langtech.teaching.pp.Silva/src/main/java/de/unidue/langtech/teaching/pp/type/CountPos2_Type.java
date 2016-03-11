@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Thu Feb 25 09:32:51 CET 2016
+ * Updated by JCasGen Wed Mar 09 23:54:59 CET 2016
  * @generated */
 public class CountPos2_Type extends Annotation_Type {
   /** @generated 

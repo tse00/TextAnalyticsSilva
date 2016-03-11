@@ -14,19 +14,14 @@ import org.junit.Test;
 
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser;
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
-import de.unidue.langtech.teaching.pp.type.CountPos1;
-import de.unidue.langtech.teaching.pp.type.CountPos2;
-import de.unidue.langtech.teaching.pp.type.MyType;
+import de.unidue.langtech.teaching.pp.type.ShowDocument;
 
-
-public class BaselineCountSelecTest {
-
-	//Count the Number of Nouns and Adjectives
+public class ShowDocumentTest {
 
 	@Test
-	public void testCountSelec() throws UIMAException {
+	public void testShowDoc() throws UIMAException {
 
-		String text = "example sentence funny. second example";
+		String text = "A fly loves a good joke!";
 
 		JCas jcas = JCasFactory.createJCas();
 
@@ -41,21 +36,18 @@ public class BaselineCountSelecTest {
 		AnalysisEngine parse = createEngine(parser);
 		parse.process(jcas);
 
-		AnalysisEngineDescription selection = createEngineDescription(BaselineCountSelect.class);
-		AnalysisEngine select = createEngine(selection);
-		select.process(jcas);
+		AnalysisEngineDescription showDoc = createEngineDescription(ShowDocumentText.class,
+				ShowDocumentText.PARAM_SHOWTEXT, true);
+		AnalysisEngine show = createEngine(showDoc);
+		show.process(jcas);
 
-		// Test the number of Nouns
-		CountPos1 countN = JCasUtil.selectSingle(jcas,
-				CountPos1.class);
+		ShowDocument doc = JCasUtil.selectSingle(jcas,
+				ShowDocument.class);
 
-		assertEquals(3, countN.getCountN());
+		// The essential part of a test - the test itself - are expected and
+		// actual result the same?
+		assertEquals(true, doc.getShowDoc());
 
-		// Test the number of Adjectives
-		CountPos2 countADJ = JCasUtil.selectSingle(jcas,
-				CountPos2.class);
-
-		assertEquals(2, countADJ.getCountADJ());
 	}
 
 }
