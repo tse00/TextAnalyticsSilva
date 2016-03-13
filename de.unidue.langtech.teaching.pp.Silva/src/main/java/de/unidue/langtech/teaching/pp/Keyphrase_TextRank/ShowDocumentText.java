@@ -5,7 +5,6 @@ import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.jcas.JCas;
 
-import de.tudarmstadt.ukp.dkpro.keyphrases.core.type.Keyphrase;
 import de.unidue.langtech.teaching.pp.type.ShowDocument;
 
 

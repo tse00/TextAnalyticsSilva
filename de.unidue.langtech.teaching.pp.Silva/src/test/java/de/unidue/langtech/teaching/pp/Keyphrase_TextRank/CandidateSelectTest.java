@@ -150,7 +150,7 @@ public class CandidateSelectTest {
 		AnalysisEngine  show = createEngine(showText);
 		show.process(jcas);
 
-		System.out.println("------Adjectives------");
+		System.out.println("------Verbs------");
 
 		System.out.println("");
         AnalysisEngineDescription selection2 = createEngineDescription(CandidateSelect.class,

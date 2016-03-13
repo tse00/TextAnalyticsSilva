@@ -13,14 +13,13 @@ import org.apache.uima.jcas.JCas;
 
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathException;
 import de.tudarmstadt.ukp.dkpro.core.api.featurepath.FeaturePathFactory;
-import de.unidue.langtech.teaching.pp.type.CountPos1;
 import de.unidue.langtech.teaching.pp.type.CountPosCandidate;
 
 public class CandidateCount extends JCasAnnotator_ImplBase{
 
 
     public static final String PARAM_FEATURE_PATH = "FeaturePath";
-    @ConfigurationParameter(name=PARAM_FEATURE_PATH)
+    @ConfigurationParameter(name=PARAM_FEATURE_PATH, mandatory=true)
     private String featurePath;
 
     List<Candidate> candidates = new ArrayList<Candidate>();

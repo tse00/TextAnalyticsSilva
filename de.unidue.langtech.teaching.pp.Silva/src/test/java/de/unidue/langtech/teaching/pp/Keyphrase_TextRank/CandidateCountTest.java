@@ -21,8 +21,7 @@ import de.unidue.langtech.teaching.pp.type.CountPosCandidate;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.ADJ;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.N;
 import de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.V;
-import de.tudarmstadt.ukp.dkpro.core.maltparser.MaltParser;
-import de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger;
+
 
 
 public class CandidateCountTest {

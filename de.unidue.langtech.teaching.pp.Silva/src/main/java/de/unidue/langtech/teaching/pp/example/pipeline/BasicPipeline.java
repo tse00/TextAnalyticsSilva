@@ -1,6 +1,5 @@
 package de.unidue.langtech.teaching.pp.example.pipeline;
 
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 
 import org.apache.uima.fit.component.CasDumpWriter;
 import org.apache.uima.fit.factory.AnalysisEngineFactory;
@@ -14,7 +13,6 @@ import de.unidue.langtech.teaching.pp.example.BaselineExample;
 import de.unidue.langtech.teaching.pp.example.EvaluatorExample;
 import de.unidue.langtech.teaching.pp.example.ReaderExample;
 import de.unidue.langtech.teaching.pp.example.newType.LetterAnnotator;
-import de.unidue.langtech.teaching.pp.example.pipeline.ExtendedPipeline;
 
 public class BasicPipeline
 {

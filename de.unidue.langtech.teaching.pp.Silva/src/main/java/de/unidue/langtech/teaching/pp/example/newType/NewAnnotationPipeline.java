@@ -6,7 +6,6 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 
 
 import de.tudarmstadt.ukp.dkpro.core.tokit.BreakIteratorSegmenter;
-import de.unidue.langtech.teaching.pp.Keyphrase_TextRank.KeyphraseReader;
 import de.unidue.langtech.teaching.pp.example.BaselineExample;
 import de.unidue.langtech.teaching.pp.example.ReaderExample;
 
@@ -18,10 +17,8 @@ public class NewAnnotationPipeline
     {
     	SimplePipeline.runPipeline(
                 CollectionReaderFactory.createReader(
-                		KeyphraseReader.class,
-                		KeyphraseReader.PARAM_INPUTDIR, "src/test/resources/test2/",
-                		KeyphraseReader.PARAM_LANGUAGE, "en",
-                		KeyphraseReader.PARAM_DATA_SUFFIX, "txt"
+                		  ReaderExample.class,
+                          ReaderExample.PARAM_INPUT_FILE, "src/test/resources/test/input.txt"
                 ),
 
                 AnalysisEngineFactory.createEngineDescription(BreakIteratorSegmenter.class),

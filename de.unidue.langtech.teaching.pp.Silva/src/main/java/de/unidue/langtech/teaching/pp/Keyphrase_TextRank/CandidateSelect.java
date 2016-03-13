@@ -23,7 +23,7 @@ public class CandidateSelect extends JCasAnnotator_ImplBase {
 
 
     public static final String PARAM_FEATURE_PATH = "FeaturePath";
-    @ConfigurationParameter(name=PARAM_FEATURE_PATH)
+    @ConfigurationParameter(name=PARAM_FEATURE_PATH, mandatory=true)
     private String featurePath;
 
     List<Candidate> candidates = new ArrayList<Candidate>();
@@ -47,7 +47,6 @@ public class CandidateSelect extends JCasAnnotator_ImplBase {
 
         System.out.println("\nSelected candidate - " +featurePath+": \n" + candidates);
 
-        AnnotationIndex<Annotation> candidateIndex = jcas.getAnnotationIndex(Keyphrase.type);
         for (Candidate candidate : candidates) {
             Keyphrase keyphrase = new Keyphrase(jcas);
             keyphrase.setKeyphrase(candidate.term);
@@ -55,9 +54,6 @@ public class CandidateSelect extends JCasAnnotator_ImplBase {
             keyphrase.setEnd(candidate.end);
             keyphrase.addToIndexes();
 
-            if (!candidateIndex.contains(keyphrase)) {
-                keyphrase.addToIndexes(jcas);
-            }
         }
 
   }
